@@ -1,0 +1,259 @@
+/* General settings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #ffe1ec, #ffc1d9, #fff0f5);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    padding: 20px;
+}
+
+/* Main card */
+.card {
+    background: #fffafd;
+    width: 100%;
+    max-width: 450px;
+    padding: 40px 25px;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 10px 35px rgba(190, 70, 120, 0.18);
+    z-index: 2;
+    animation: appear 1s ease;
+}
+
+.envelope {
+    font-size: 55px;
+    margin-bottom: 15px;
+    animation: bounce 2s infinite;
+}
+
+.small-text {
+    color: #d4779c;
+    font-size: 11px;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+}
+
+h1 {
+    color: #d94f83;
+    font-size: 30px;
+    margin-bottom: 18px;
+}
+
+.message {
+    color: #966477;
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #c84d7c;
+    font-size: 22px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.details {
+    color: #9e7c8b;
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+/* Buttons */
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.buttons a,
+.back-button {
+    text-decoration: none;
+    padding: 13px 28px;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.yes-button {
+    background: #e96d9c;
+    color: white;
+}
+
+.yes-button:hover {
+    background: #d94b82;
+    transform: scale(1.1);
+}
+
+.no-button {
+    background: #f5e5ed;
+    color: #b66a88;
+}
+
+.no-button:hover {
+    transform: rotate(-8deg);
+}
+
+.footer {
+    color: #c58aa1;
+    font-size: 12px;
+    margin-top: 30px;
+}
+
+/* Floating hearts */
+.hearts span {
+    position: absolute;
+    bottom: -50px;
+    font-size: 25px;
+    animation: float 8s linear infinite;
+    opacity: 0;
+}
+
+.hearts span:nth-child(1) {
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.hearts span:nth-child(2) {
+    left: 25%;
+    animation-delay: 2s;
+}
+
+.hearts span:nth-child(3) {
+    left: 40%;
+    animation-delay: 4s;
+}
+
+.hearts span:nth-child(4) {
+    left: 60%;
+    animation-delay: 1s;
+}
+
+.hearts span:nth-child(5) {
+    left: 75%;
+    animation-delay: 3s;
+}
+
+.hearts span:nth-child(6) {
+    left: 90%;
+    animation-delay: 5s;
+}
+
+.hearts span:nth-child(7) {
+    left: 50%;
+    animation-delay: 6s;
+}
+
+/* Floating animation */
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Card animation */
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Envelope animation */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Response cards */
+.answer-card {
+    display: none;
+    position: fixed;
+    z-index: 5;
+    background: #fffafd;
+    width: 90%;
+    max-width: 400px;
+    padding: 40px 25px;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 10px 35px rgba(190, 70, 120, 0.2);
+}
+
+.answer-card:target {
+    display: block;
+    animation: appear 0.5s ease;
+}
+
+.big-heart {
+    font-size: 65px;
+    margin-bottom: 15px;
+}
+
+.answer-card p {
+    color: #966477;
+    margin: 15px 0;
+}
+
+.back-button {
+    display: inline-block;
+    background: #e96d9c;
+    color: white;
+    margin-top: 15px;
+}
+
+.back-button:hover {
+    background: #d94b82;
+}
+
+/* Mobile screens */
+@media (max-width: 480px) {
+    .card {
+        padding: 30px 18px;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
+
+    h2 {
+        font-size: 19px;
+    }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}
